@@ -3,7 +3,11 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+
+// Library Tambahan
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session')
 
 // Mongoose
 const mongoose = require('mongoose');
@@ -21,7 +25,15 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Library Tambahan
 app.use(methodOverride('_method'));
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 }
+}))
+app.use(flash());
 
 app.use(logger('dev'));
 app.use(express.json());
