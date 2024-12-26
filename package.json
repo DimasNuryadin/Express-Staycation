@@ -13,10 +13,12 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.18.1",
+    "fs-extra": "^11.2.0",
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
     "mongoose": "^8.9.2",
     "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
     "startbootstrap-sb-admin-2": "^4.1.4"
   }
 }

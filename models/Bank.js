@@ -13,6 +13,10 @@ const bankSchema = new Schema({
   name: {
     type: String,
     required: true
+  },
+  imageUrl: {
+    type: String,
+    required: true
   }
 })
 
