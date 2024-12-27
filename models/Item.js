@@ -19,11 +19,16 @@ const itemSchema = new Schema({
     required: true
   },
   isPopular: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   description: {
     type: String,
     required: true
+  },
+  categoryId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category'
   },
   imageId: [{
     type: Schema.Types.ObjectId,

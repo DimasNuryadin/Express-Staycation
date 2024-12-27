@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { ObjectId } = mongoose.Schema.Types;
 
-const bookingSchema = new Schema({
+const bookingSchema = new mongoose.Schema({
   bookingStartDate: {
     type: Date,
     required: true
@@ -12,7 +12,7 @@ const bookingSchema = new Schema({
   },
   itemId: [{
     _id: {
-      type: Schema.Types.ObjectId,
+      type: ObjectId,
       ref: 'Item',
       required: true
     },
@@ -26,11 +26,11 @@ const bookingSchema = new Schema({
     }
   }],
   memberId: [{
-    type: Schema.Types.ObjectId,
+    type: ObjectId,
     ref: 'Member'
   }],
   bankId: [{
-    type: Schema.Types.ObjectId,
+    type: ObjectId,
     ref: 'Bank'
   }],
   proofPayment: {

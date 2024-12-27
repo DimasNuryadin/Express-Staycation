@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { ObjectId } = mongoose.Schema.Types;
 
-const activitySchema = new Schema({
+const activitySchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -16,6 +16,10 @@ const activitySchema = new Schema({
   },
   isPopular: {
     type: Boolean
+  },
+  itemId: {
+    type: ObjectId,
+    ref: 'Item'
   }
 })
 

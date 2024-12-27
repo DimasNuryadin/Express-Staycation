@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { ObjectId } = mongoose.Schema.Types;
 
-const featureSchema = new Schema({
+const featureSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -13,6 +13,10 @@ const featureSchema = new Schema({
   imageUrl: {
     type: String,
     required: true
+  },
+  itemId: {
+    type: ObjectId,
+    ref: 'Item'
   }
 })
 

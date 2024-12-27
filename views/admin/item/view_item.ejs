@@ -16,12 +16,56 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-              <!-- Page Heading -->
-              <h1 class="h3 mb-4 text-gray-800">Item</h1>
-              <!-- End Heading -->
+              <%- include('../../partials/message.ejs') %>
 
-              <%- include('table_item.ejs') %>
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800">Item</h1>
+                <!-- End Heading -->
 
+                <% if(action=='view' ) { %>
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link active" id="show-tab" data-toggle="tab" data-target="#show-item" type="button"
+                        role="tab" aria-controls="show-item" aria-selected="true">
+                        Show Item
+                      </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="add-tab" data-toggle="tab" data-target="#add-item" type="button"
+                        role="tab" aria-controls="add-item" aria-selected="false">
+                        Add Item
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="myTabContent">
+                    <%- include('show_table_item.ejs') %>
+                      <%- include('add_item.ejs') %>
+                  </div>
+                  <% } else if(action=='show image' ) { %>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="show-tab" data-toggle="tab" data-target="#show-image"
+                          type="button" role="tab" aria-controls="show-image" aria-selected="true">
+                          Show Image
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <%- include('show_image_item.ejs') %>
+                    </div>
+                    <% } else { %>
+                      <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link active" id="show-tab" data-toggle="tab" data-target="#edit-item"
+                            type="button" role="tab" aria-controls="edit-item" aria-selected="true">
+                            Edit Item
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <%- include('edit_item.ejs') %>
+                      </div>
+                      <% } %>
             </div>
             <!-- /.container-fluid -->
 
@@ -62,3 +106,10 @@
   </div>
 
   <%- include('../../partials/js.ejs') %>
+    <script>
+      ClassicEditor
+        .create(document.querySelector('#about'))
+        .catch(error => {
+          console.error(error);
+        });
+    </script>
