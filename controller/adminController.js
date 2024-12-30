@@ -64,9 +64,12 @@ module.exports = {
 
   viewDashboard: async (req, res) => {
     try {
-      const member = await Member.find();
-      const booking = await Booking.find();
-      const item = await Item.find();
+      const member = await Member.find()
+        .estimatedDocumentCount();
+      const booking = await Booking.find()
+        .estimatedDocumentCount();
+      const item = await Item.find()
+        .estimatedDocumentCount();
       res.render('admin/dashboard/view_dashboard', {
         title: 'Staycation | Dashboard',
         user: req.session.user,
