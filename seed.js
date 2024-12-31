@@ -9,12 +9,13 @@ const Member = require('./models/Member');
 const Image = require('./models/Image');
 const Booking = require('./models/Booking');
 const Users = require('./models/Users');
+const { urlDb } = require('./config');
 
 // Fungsi utama untuk seeding
 const seedDatabase = async () => {
   try {
     // Koneksi ke database
-    await mongoose.connect('mongodb://127.0.0.1:27017/db_staycation', {
+    await mongoose.connect('mongodb+srv://dimasnuryadin:rahasia@cluster0.bp56stq.mongodb.net/db_staycation?retryWrites=true&w=majority&appName=Cluster0', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

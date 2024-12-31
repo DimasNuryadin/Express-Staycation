@@ -10,8 +10,9 @@ const flash = require('connect-flash');
 const session = require('express-session')
 
 // Mongoose
+const { urlDb } = require('./config')
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/db_staycation');
+mongoose.connect(urlDb);
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
